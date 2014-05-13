@@ -10,14 +10,14 @@ Installation
 
 2. Add BTC currency to your locale in /lib/Zend/Locale/Data/en.xml (or your locale)
 
-``
+```
 <currency type="BTC">
     <displayName>Bitcoin</displayName>
     <displayName count="one">Bitcoin</displayName>
     <displayName count="other">Bitcoins</displayName>
     <symbol>฿</symbol>
 </currency>
-``
+```
 
 3. Add Bitcoin to the allowed curriencies in System -> Configuration -> Currency Setup and select Bitcoin as your Default Display Currency.
 
