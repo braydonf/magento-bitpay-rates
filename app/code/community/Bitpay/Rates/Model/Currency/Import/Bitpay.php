@@ -28,7 +28,7 @@ class Bitpay_Rates_Model_Currency_Import_Bitpay extends Mage_Directory_Model_Cur
     protected $_url = 'https://bitpay.com/api/rates';
     protected $_messages = array();
 
-     /**
+    /**
      * HTTP client
      *
      * @var Varien_Http_Client
@@ -54,8 +54,8 @@ class Bitpay_Rates_Model_Currency_Import_Bitpay extends Mage_Directory_Model_Cur
     protected function _convert($currencyFrom, $currencyTo, $retry=0) {
         $supported = $this->getSupportedCurrencies();
 
-        if ( ! ( ( in_array( $currencyFrom, $supported ) && $currencyTo == 'BTC' ) || 
-            ( $currencyFrom == 'BTC' && in_array($currencyTo, $supported ) ) ) ) {
+        if ( ! ( ( in_array( $currencyFrom, $supported ) && $currencyTo == 'BTC' ) ||
+                 ( $currencyFrom == 'BTC' && in_array($currencyTo, $supported ) ) ) ) {
 
             $this->_messages[] = Mage::helper('directory')->__('Conversion from %s to %s is not supported by BitPay Bitcoin Exchange Rates will fallback to use Webservicex.', $currencyFrom, $currencyTo);
 
@@ -116,4 +116,3 @@ class Bitpay_Rates_Model_Currency_Import_Bitpay extends Mage_Directory_Model_Cur
         }
     }
 }
-

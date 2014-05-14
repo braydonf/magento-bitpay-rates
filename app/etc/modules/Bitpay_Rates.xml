@@ -1,11 +1,11 @@
 <config>
-	<modules>
-		<Bitpay_Rates>
-			<active>true</active>
-			<codePool>community</codePool>
-			<depends>
+    <modules>
+        <Bitpay_Rates>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
                 <Mage_Directory/>
-			</depends>
-		</Bitpay_Rates>
-	</modules>
+            </depends>
+        </Bitpay_Rates>
+    </modules>
 </config>
