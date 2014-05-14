@@ -57,7 +57,8 @@ class Bitpay_Rates_Model_Currency_Import_Bitpay extends Mage_Directory_Model_Cur
         if ( ! ( ( in_array( $currencyFrom, $supported ) && $currencyTo == 'BTC' ) ||
                  ( $currencyFrom == 'BTC' && in_array($currencyTo, $supported ) ) ) ) {
 
-            $this->_messages[] = Mage::helper('directory')->__('Conversion from %s to %s is not supported by BitPay Bitcoin Exchange Rates will fallback to use Webservicex.', $currencyFrom, $currencyTo);
+            $this->_messages[] = Mage::helper('directory')
+                ->__('Conversion from %s to %s is not supported by BitPay Bitcoin Exchange Rates will fallback to use Webservicex.', $currencyFrom, $currencyTo);
 
             try {
                 $default = Mage::getModel('directory/currency_import_webservicex');
@@ -80,7 +81,8 @@ class Bitpay_Rates_Model_Currency_Import_Bitpay extends Mage_Directory_Model_Cur
             $prices = (array)json_decode($response);
 
             if( !$prices ) {
-                $this->_messages[] = Mage::helper('directory')->__('Cannot retrieve rate from %s.', $this->_url);
+                $this->_messages[] = Mage::helper('directory')
+                    ->__('Cannot retrieve rate from %s.', $this->_url);
                 return null;
             }
 
@@ -101,7 +103,8 @@ class Bitpay_Rates_Model_Currency_Import_Bitpay extends Mage_Directory_Model_Cur
                 $result = 1/(float)$rate;
             }
 
-            $this->_messages[] = Mage::helper('directory')->__('Retrieved rate from %s to %s.', $currencyFrom, $currencyTo );
+            $this->_messages[] = Mage::helper('directory')
+                ->__('Retrieved rate from %s to %s.', $currencyFrom, $currencyTo );
 
             return $result;
 
@@ -110,7 +113,8 @@ class Bitpay_Rates_Model_Currency_Import_Bitpay extends Mage_Directory_Model_Cur
             if ( $retry == 0 ) {
                 $this->_convert($currencyFrom, $currencyTo, 1);
             } else {
-                $this->_messages[] = Mage::helper('directory')->__('Cannot retrieve rate from %s.', $_url);
+                $this->_messages[] = Mage::helper('directory')
+                    ->__('Cannot retrieve rate from %s.', $_url);
             }
 
         }

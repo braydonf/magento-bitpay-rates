@@ -19,8 +19,8 @@
                 </services>
             </import>
         </currency>
-    </global> 
-    
+    </global>
+
     <default>
         <system>
             <currency>
@@ -43,4 +43,3 @@
         </currency>
     </default>
 </config>
-
