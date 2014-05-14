@@ -41,14 +41,14 @@ class Bitpay_Rates_Model_Currency_Import_Bitpay extends Mage_Directory_Model_Cur
 
     /**
      *
-     * @return array An array of currencies supported on BitPay Bitcoin Exchage Rates.
+     * @return array An array of currencies supported on BitPay Bitcoin Exchange Rates.
      */
     public function getSupportedCurrencies() {
         return array("USD","EUR","GBP","JPY","CAD","AUD","CNY","CHF","SEK","NZD","KRW","AED","AFN","ALL","AMD","ANG","AOA","ARS","AWG","AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BRL","BSD","BTN","BWP","BYR","BZD","CDF","CLF","CLP","COP","CRC","CVE","CZK","DJF","DKK","DOP","DZD","EEK","EGP","ETB","FJD","FKP","GEL","GHS","GIP","GMD","GNF","GTQ","GYD","HKD","HNL","HRK","HTG","HUF","IDR","ILS","INR","IQD","ISK","JEP","JMD","JOD","KES","KGS","KHR","KMF","KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LTL","LVL","LYD","MAD","MDL","MGA","MKD","MMK","MNT","MOP","MRO","MUR","MVR","MWK","MXN","MYR","MZN","NAD","NGN","NIO","NOK","NPR","OMR","PAB","PEN","PGK","PHP","PKR","PLN","PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG","SGD","SHP","SLL","SOS","SRD","STD","SVC","SYP","SZL","THB","TJS","TMT","TND","TOP","TRY","TTD","TWD","TZS","UAH","UGX","UYU","UZS","VEF","VND","VUV","WST","XAF","XAG","XAU","XCD","XOF","XPF","YER","ZAR","ZMW","ZWL");
     }
 
-    public function convert($currencyFrom, $currencyTo, $retry = 0) {
-        return $this->_convert($currencyFrom, $currencyTo, 0);
+    public function convert($currencyFrom, $currencyTo, $retry=0) {
+        return $this->_convert($currencyFrom, $currencyTo, $retry);
     }
 
     protected function _convert($currencyFrom, $currencyTo, $retry=0) {
@@ -110,7 +110,7 @@ class Bitpay_Rates_Model_Currency_Import_Bitpay extends Mage_Directory_Model_Cur
             if ( $retry == 0 ) {
                 $this->_convert($currencyFrom, $currencyTo, 1);
             } else {
-                $this->_messages[] = Mage::helper('directory')->__('Cannot retrieve rate from %s.', $url);
+                $this->_messages[] = Mage::helper('directory')->__('Cannot retrieve rate from %s.', $_url);
             }
 
         }
